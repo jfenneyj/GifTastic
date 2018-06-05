@@ -1,2 +1,4 @@
 bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj
-"https://api.giphy.com/v1/gifs/search?q=&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10"
+"https://api.giphy.com/v1/gifs/search?q=pigs&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10"
+
+"https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10";

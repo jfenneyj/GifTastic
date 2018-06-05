@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>GifTastic</title>
 </head>
 
 <body>
     <!-- Jumbotron -->
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-right">
         <div class="container">
             <h1>Favorite Animal Search</h1>
         </div>
@@ -24,30 +25,29 @@
        
    <!-- Main Container -->
    <div class="container">
-       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+       
+       <div class="col-lg-9">
             <div class="display-gifs"></div>
         </div>
-   
+    
 
    <!-- Animal form for submission -->
     
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="col-lg-3">
             <form action="" id="animalForm" role="form">
                 </div>
 
                 <div class="form-group">
-                    <label for="animalInput"><h3>Add your favorite animal</h3></label>
+                    <label for="animalInput"><h5>Add your favorite animal</h5></label>
                     <input type="text" class="form-control" id="animalInput">
                 </div>
 
                 <input type="submit" value="Add Animal" id="newAnimal" class="btn btn-primary">
                 <input type="submit" value="Remove Animal" id="removeAnimal" class="btn btn-primary">
             </form>
-            <div id="footer" class="text-center">
-                <h4>Wonderful Animal Kingdom</h4>
-            </div>
-                
             
+                
+       
         </div>
 
 

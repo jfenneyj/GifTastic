@@ -5,129 +5,36 @@
 // q = 
 // limit = 10 gifs
 //rating
+/*i made an array and then i have a function with a for loop that appends a <button> element for each item in the array using jquery. When new items are typed in the form window, i just add that to the array and rerun the function to created the buttons, clearing it and then rediplaying.*/
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     // array of animals
+    var q = "animals";
 
-var array = ["bird", "cat", "lizard", "dog", "dolphin", "seal", "monkey"];
-// console.log(array);
-//create buttons
-function buttonDisplay (){
-    $("#animalbtn").empty();
+    var animals = ["bird", "cat", "lizard", "dog", "dolphin", "seal", "monkey"];
 
-    for(var i = 0; i < array.length; i++){
-       
-        var animalBtn = ("<button>");
-        animalBtn.addClass("animal");
-        animalBtn.addClass("btn btn-success");
-        animalBtn.attr("data-name", array[i]);
-        animalBtn.text(array[i]);
-        $("#animalBtn-view").append(animalBtn);
-    }
-
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + q + "&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10";
     
-}
+    console.log(queryURL);
 
-function createNewButton(){
-    $("#newAnimal").on("click", function(){
-        var animal = $("#animalInput").val().trim();
-        if(animal == ""){
-            return false; //no blank spaces
-        }
-        array.push(animal);
-        
-        buttonDisplay();
-        return false;
+    //create buttons
+    function printBtn() {
+      
 
-    });
+        for (var i = 0; i < animals.length; i++) {
 
-}
+           $(animals).each(function(){});
 
-    function removeButton(){
-        $("#removeAnimal").on("click", function(){
-            array.pop(animal);
-            buttonDisplay();
-            return false;
-
-        });
+            var btn = document.createElement("button");
+            var animal = document.createTextNode(animals[i]);
+            btn.appendChild(animal);
+            document.body.appendChild(btn);
+            
     }
-
-    function displayGifs(){
-        var animal = $(this).attr("data-name");
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10";
-
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-          })
-
-          .then(function(response){
-            $("#animalbtn").empty();
-
-            var results = response.data;
-
-            for(var i = 0; i < results.length; i++){
-
-                if (results[i].rating !== "r" && results[i].rating !== "pg-13"){
-                    
-                    // creating a div with class of item
-                    var gifDiv = $("<div class='item'>");
-
-                    // storing the result item's rating
-                    var rating = results[i].rating;
-
-                    // creating a p tag item's rating
-                    var p = $("<p>").text("Rating; " + rating);
-
-
-
-
-                }
-
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
+   
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
-
+    printBtn();
 
 
 });

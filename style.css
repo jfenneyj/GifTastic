@@ -1,0 +1,50 @@
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.display-gifs{
+    float: left;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 20px 5px 5px 5px;
+    border-radius: 10px;
+    float: left;
+    
+  
+}
+
+button:nth-child(odd){
+    background-color: #02461e;
+    color: #fff;
+}
+
+button:nth-child(even){
+    background-color: #1742b6;
+    color: #fff;
+}
+
+.jumbotron {
+    background-image: url("Images/Tiger.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    
+}
+
+h1 {
+    margin-right: 30px;
+    color: deepskyblue;
+}
+
+#animalInput{
+    width: 250px;
+}
+
+
+/* div {
+    border: 1px solid #000;
+} */
