@@ -15,17 +15,36 @@ $(document).ready(function () {
     // initial array of animals
     var animals = ["bird", "cat", "lizard", "dog", "dolphin", "seal", "monkey"];
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + q +
-        "&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10";
+    
 
     // console.log(queryURL);
 
-    /*function alertAnimalName(){
-        var animalName = $(this).attr("data-name");
-        NOT WORKING!!
-        console.log(animalName);
-    }*/
 
+    function displayAnimalInfo(event){
+        
+        var animal = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +
+        "&api_key=bnVtRNFiLdPLfyMM7a9hfp9nys3Npfpj&limit=10";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response){
+            renderButtons();
+            console.log(response);
+            // $("#animal-view").text(response);
+            
+            for(var j = 0; j < response.data.length; j++){
+                var images = $("<img>");
+                images.attr("src", response.data[j].images.fixed_height_still.url);
+                images.attr("data-moving", response.data[j].images.fixed_height.url);
+                images.addClass("animalgif");
+                $("#animal-view").append(images);
+            }
+        });
+        
+    }
+   
     //create buttons
     function renderButtons() {
 
@@ -46,8 +65,14 @@ $(document).ready(function () {
 
         }
     }
-         //calling the function for the buttons
-         renderButtons();
+    //calling the function for the buttons
+    renderButtons();
+
+    $(document).on("click", ".animalgif",function(evt){
+        
+        var moving = $(this).attr("data-moving");
+        $(this).attr("src", moving);
+    })
 
     // event handler function on click;
     $("#add-animal").on("click", function (evt) {
@@ -61,12 +86,14 @@ $(document).ready(function () {
         animals.push(animal);
         // alert(animal);
 
-         //calling the function for the buttons
-    renderButtons();
+        //calling the function for the buttons
+        renderButtons();
 
     });
 
+    $(document).on("click", ".animal", displayAnimalInfo);
 
+    // renderButtons();
 
 
 
