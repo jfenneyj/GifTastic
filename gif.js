@@ -38,8 +38,9 @@ $(document).ready(function () {
                 var images = $("<img>");
                 images.attr("src", response.data[j].images.fixed_height_still.url);
                 images.attr("data-moving", response.data[j].images.fixed_height.url);
-                images.addClass("animalgif");
-                $("#animal-view").append(images);
+                images.addClass("animalgif col-lg-3");
+
+                $(".animal-view").append(images);
             }
         });
         
