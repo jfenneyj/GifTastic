@@ -38,7 +38,9 @@ $(document).ready(function () {
                 var images = $("<img>");
                 images.attr("src", response.data[j].images.fixed_height_still.url);
                 images.attr("data-moving", response.data[j].images.fixed_height.url);
-                images.addClass("animalgif col-lg-3");
+                images.attr("data-still", response.data[j].images.fixed_height_still.url);
+
+                images.addClass("animalgif col-md-3");
 
                 $(".animal-view").append(images);
             }
@@ -72,7 +74,14 @@ $(document).ready(function () {
     $(document).on("click", ".animalgif",function(evt){
         
         var moving = $(this).attr("data-moving");
-        $(this).attr("src", moving);
+        
+        if($(this).attr("src") == moving){
+           var still =  $(this).attr("data-still");
+           console.log("moving");
+            $(this).attr("src", still);
+        } else {
+            $(this).attr("src", moving);
+        }
     })
 
     // event handler function on click;
